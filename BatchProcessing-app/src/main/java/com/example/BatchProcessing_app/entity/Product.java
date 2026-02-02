@@ -1,37 +1,33 @@
 package com.example.BatchProcessing_app.entity;
 
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
+
+
+@Entity
 public class Product {
 
-    private int product_id;
+    @Id
+    private Long productId;
 
     private String title;
-
     private String description;
-
     private String price;
-
     private String discount;
 
+    @Transient
     private String discountedPrice;
 
+    // ✅ REQUIRED getters & setters
 
-    public Product(int product_id, String title, String price, String description, String discount) {
-        this.product_id = product_id;
-        this.title = title;
-        this.price = price;
-        this.description = description;
-        this.discount = discount;
+    public Long getProductId() {
+        return productId;
     }
 
-    public Product() {
-    }
-
-    public int getProduct_id() {
-        return product_id;
-    }
-
-    public void setProduct_id(int product_id) {
-        this.product_id = product_id;
+    public void setProductId(Long productId) {
+        this.productId = productId;
     }
 
     public String getTitle() {
@@ -42,20 +38,20 @@ public class Product {
         this.title = title;
     }
 
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public String getDiscount() {

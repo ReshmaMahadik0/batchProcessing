@@ -2,17 +2,21 @@ package com.example.BatchProcessing_app.config;
 
 import com.example.BatchProcessing_app.entity.Product;
 import org.springframework.batch.item.ItemProcessor;
-import org.springframework.web.util.DefaultUriBuilderFactory;
 
-public class CustomItemProcesssor  implements ItemProcessor<Product, Product> {
-
+public class CustomItemProcesssor implements ItemProcessor<Product, Product> {
 
     @Override
-    public Product process(Product item) throws Exception {
-        int discountPer = Integer.parseInt(item.getDiscount());
+    public Product process(Product item) {
+
+        // Remove % sign safely
+        String discountStr = item.getDiscount().replace("%", "").trim();
+
+        double discountPercent = Double.parseDouble(discountStr);
         double originalPrice = Double.parseDouble(item.getPrice());
-        double discount = (discountPer/100) * originalPrice;
-        double finalPrice = originalPrice - discount;
+
+        double discountAmount = (discountPercent / 100.0) * originalPrice;
+        double finalPrice = originalPrice - discountAmount;
+
         item.setDiscountedPrice(String.valueOf(finalPrice));
         return item;
     }
