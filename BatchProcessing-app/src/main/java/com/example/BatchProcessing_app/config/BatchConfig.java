@@ -56,7 +56,7 @@ public class BatchConfig {
                 .resource(new ClassPathResource("products_50_records.csv"))
                 .linesToSkip(1)
                 .delimited()
-                .names("product_id", "title", "description", "price", "discount")
+                .names("productId", "title", "description", "price", "discount")
                 .targetType(Product.class)
                 .build();
     }
@@ -70,11 +70,12 @@ public class BatchConfig {
     @Bean
     public ItemWriter<Product> itemWriter(DataSource dataSource){
         return new JdbcBatchItemWriterBuilder<Product>()
-                .sql("insert into products(product_id, title, description, discount, discounted_price)values(:productId, :title, :description, :discount, :discountedPrice)")
+                .sql("INSERT INTO products " +
+                        "(product_id, title, description, price, discount, discounted_price) " +
+                        "VALUES (:productId, :title, :description, :price, :discount, :discountedPrice)")
                 .dataSource(dataSource)
                 .beanMapped()
                 .build();
-
     }
 
 }

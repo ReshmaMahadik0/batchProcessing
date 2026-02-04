@@ -1,37 +1,25 @@
 package com.example.BatchProcessing_app.entity;
 
+import java.math.BigDecimal;
+
 public class Product {
 
-    private int product_id;
-
+    private int productId;
     private String title;
-
     private String description;
-
-    private String price;
-
+    private BigDecimal price;
     private String discount;
-
-    private String discountedPrice;
-
-
-    public Product(int product_id, String title, String price, String description, String discount) {
-        this.product_id = product_id;
-        this.title = title;
-        this.price = price;
-        this.description = description;
-        this.discount = discount;
-    }
+    private BigDecimal discountedPrice;
 
     public Product() {
     }
 
-    public int getProduct_id() {
-        return product_id;
+    public int getProductId() {
+        return productId;
     }
 
-    public void setProduct_id(int product_id) {
-        this.product_id = product_id;
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 
     public String getTitle() {
@@ -42,20 +30,20 @@ public class Product {
         this.title = title;
     }
 
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 
     public String getDiscount() {
@@ -66,11 +54,11 @@ public class Product {
         this.discount = discount;
     }
 
-    public String getDiscountedPrice() {
+    public BigDecimal getDiscountedPrice() {
         return discountedPrice;
     }
 
-    public void setDiscountedPrice(String discountedPrice) {
+    public void setDiscountedPrice(BigDecimal discountedPrice) {
         this.discountedPrice = discountedPrice;
     }
 }
