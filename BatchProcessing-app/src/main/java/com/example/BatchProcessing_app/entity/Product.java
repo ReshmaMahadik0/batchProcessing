@@ -1,10 +1,14 @@
 package com.example.BatchProcessing_app.entity;
 
-<<<<<<< HEAD
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 import java.math.BigDecimal;
 
+@Entity
 public class Product {
 
+    @Id
     private int productId;
     private String title;
     private String description;
@@ -12,44 +16,12 @@ public class Product {
     private String discount;
     private BigDecimal discountedPrice;
 
-    public Product() {
+    public String getDescription() {
+        return description;
     }
 
-    public int getProductId() {
-        return productId;
-    }
-
-    public void setProductId(int productId) {
-=======
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Transient;
-
-
-@Entity
-public class Product {
-
-    @Id
-    private Long productId;
-
-    private String title;
-    private String description;
-    private String price;
-    private String discount;
-
-    @Transient
-    private String discountedPrice;
-
-    // ✅ REQUIRED getters & setters
-
-    public Long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Long productId) {
->>>>>>> d1bfe7fbb84a2a4c7db5d1203736662fda11ddde
-        this.productId = productId;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getTitle() {
@@ -60,27 +32,19 @@ public class Product {
         this.title = title;
     }
 
-    public String getDescription() {
-        return description;
+    public int getProductId() {
+        return productId;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 
-<<<<<<< HEAD
     public BigDecimal getPrice() {
         return price;
     }
 
     public void setPrice(BigDecimal price) {
-=======
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
->>>>>>> d1bfe7fbb84a2a4c7db5d1203736662fda11ddde
         this.price = price;
     }
 

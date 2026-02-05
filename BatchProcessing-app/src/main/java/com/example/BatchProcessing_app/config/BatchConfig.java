@@ -75,18 +75,12 @@ public class BatchConfig {
     public ItemWriter<Product> writer(DataSource dataSource) {
 
         return new JdbcBatchItemWriterBuilder<Product>()
-<<<<<<< HEAD
+
                 .sql("INSERT INTO products " +
                         "(product_id, title, description, price, discount, discounted_price) " +
                         "VALUES (:productId, :title, :description, :price, :discount, :discountedPrice)")
-=======
->>>>>>> d1bfe7fbb84a2a4c7db5d1203736662fda11ddde
+
                 .dataSource(dataSource)
-                .sql("""
-                     INSERT INTO products
-                     (product_id, title, description, discount, discounted_price)
-                     VALUES (:productId, :title, :description, :discount, :discountedPrice)
-                     """)
                 .beanMapped()
                 .build();
     }
