@@ -1,5 +1,6 @@
 package com.example.BatchProcessing_app.entity;
 
+<<<<<<< HEAD
 import java.math.BigDecimal;
 
 public class Product {
@@ -19,6 +20,35 @@ public class Product {
     }
 
     public void setProductId(int productId) {
+=======
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
+
+
+@Entity
+public class Product {
+
+    @Id
+    private Long productId;
+
+    private String title;
+    private String description;
+    private String price;
+    private String discount;
+
+    @Transient
+    private String discountedPrice;
+
+    // ✅ REQUIRED getters & setters
+
+    public Long getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Long productId) {
+>>>>>>> d1bfe7fbb84a2a4c7db5d1203736662fda11ddde
         this.productId = productId;
     }
 
@@ -38,11 +68,19 @@ public class Product {
         this.description = description;
     }
 
+<<<<<<< HEAD
     public BigDecimal getPrice() {
         return price;
     }
 
     public void setPrice(BigDecimal price) {
+=======
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+>>>>>>> d1bfe7fbb84a2a4c7db5d1203736662fda11ddde
         this.price = price;
     }
 
